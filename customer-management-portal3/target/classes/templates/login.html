@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <style>
+        .header-marquee{
+            width: 40vw;
+            height: 10vh;
+            border: 2px solid black;
+            margin-inline: auto;
+            font-size: 20px;
+            margin-top: 40px;
+            text-align: center;
+        }
+        body{
+            background-color: blanchedalmond;
+        }
+        .login-container{
+            width: 60vw;
+            height: 50vh;
+            border: 5px solid;
+            border-color: black;
+            margin-inline: auto;
+            margin-top: 50px;
+            border-radius: 2%;
+        }
+        .login-container>h2{
+            text-align: center;
+            text-decoration: underline;
+            font-size: 30px;
+        }
+        label{
+            font-size: 40px;
+        }
+        .input-field-container{
+            margin-inline: auto;
+            width: 50vw;
+            height: 8vh;
+            display: flex;
+            align-items: center;
+            margin-top: 30px;
+
+            justify-content: space-around;
+        }
+        #username{
+            width: 400px;
+            height: 30px;
+            border-radius: 2%;
+            font-size: 25px;
+        }
+        #password{
+            width: 400px;
+            height: 30px;
+            border-radius: 2%;
+            font-size: 25px;
+        }
+        #submit-btn{
+            width: 100px;
+            height: 50px;
+            font-size: 20px;
+        }
+        .wrong-credentials{
+            width: 200px;
+            height: 20px;
+            background-color: palegreen;
+            margin: auto;
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <div class="header-marquee">
+        <marquee>
+            <h1>
+            Login! To Access the Portal
+            </h1>
+        </marquee>
+    </div>
+    <div class="login-container">
+        <h2 class="login-container-heading">Enter your Login Details</h2>
+        <div class="wrong-credentials" th:if="${param.error}">
+            <p>The Credentials are wrong!</p>
+        </div>
+        <form th:action="@{login}" method="post">
+            <div class="username-container input-field-container">
+                <label for="username">Login Id : </label>
+            <input type="text" name="username" id="username" required placeholder="Enter Login Id">
+            </div>
+            <div class="password-container input-field-container">
+                <label for="password">Password : </label>
+            <input type="password" name="password" id="password" required placeholder="Enter Password">
+            
+            </div>
+            <div class="submit-btn-container input-field-container">
+                <input type="submit" id="submit-btn">
+            </div>
+            <!-- <label for="username">Username : </label>
+            <input type="text" name="username" id="username">
+            <br><br><br><br> -->
+            <!-- <label for="password">Password : </label>
+            <input type="password" name="password" id="password">
+            <br><br><br><br>
+            <input type="submit" id="submit-btn"> -->
+        </form>
+    </div>
+
+</body>
+</html>
